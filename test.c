@@ -258,9 +258,9 @@ int main()
                                 j++;
                         }
 			cnt = j;
-			for (i = 0; i < cnt; i++)
+			/*for (i = 0; i < cnt; i++)
 			{
-			       	if (inputString[i] == ';' || inputString[i] == '\0') {
+			       	if (strcmp(batchStrings[i], ";") || strcmp(batchStrings[i], "\0")) {
                  		        batchStrings[cnt][j] = '\0';
                                		cnt++; //for next word
                                		j = 0; //for next word, init index to 0
@@ -268,10 +268,10 @@ int main()
 					batchStrings[cnt][i] = inputString[i];
                                 	j++;
                         	}
-			}	
+			}	*/
 			for (i = 0; i < cnt; i++){
                       		if (strcmp(batchStrings[i], "exit")){
-					printf("%s", batchStrings[i]);
+					printf("Entered command is: %s\n", batchStrings[i]);
                             		execFlag = processString(batchStrings[i],parsedArgs, parsedArgsPiped);
                            		if (execFlag == 1)
                                 		execArgs(parsedArgs);
@@ -282,6 +282,7 @@ int main()
                      			 }
                 	}
                 	if (ex){
+				printf("Entered command is: EXIT");
                         	printf("\nGoodbye\n");
                         	exit(0);
                 	}
