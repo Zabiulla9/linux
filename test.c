@@ -46,8 +46,6 @@ int getInput(char* str)
 		return 1;
 	}
 }
-
-// Function to print Current Directory.
 void printDir()
 {
 	char cwd[1024];
@@ -55,7 +53,6 @@ void printDir()
 	printf("%s", cwd);
 }
 
-// Function where the system command is executed
 void execArgs(char** parsed)
 {
 	// Forking a child
@@ -76,7 +73,6 @@ void execArgs(char** parsed)
 	}
 }
 
-// Function where the piped system commands is executed
 void execArgsPiped(char** parsed, char** parsedpipe)
 {
 	// 0 is read end, 1 is write end
@@ -181,7 +177,6 @@ int ownCmdHandler(char** parsed)
 	return 0;
 }
 
-// function for finding pipe
 int parsePipe(char* str, char** strpiped)
 {
 	int i;
@@ -258,17 +253,6 @@ int main()
                                 j++;
                         }
 			cnt = j;
-			/*for (i = 0; i < cnt; i++)
-			{
-			       	if (strcmp(batchStrings[i], ";") || strcmp(batchStrings[i], "\0")) {
-                 		        batchStrings[cnt][j] = '\0';
-                               		cnt++; //for next word
-                               		j = 0; //for next word, init index to 0
-                        	}else {
-					batchStrings[cnt][i] = inputString[i];
-                                	j++;
-                        	}
-			}	*/
 			for (i = 0; i < cnt; i++){
                       		if (strcmp(batchStrings[i], "exit")){
 					printf("Entered command is: %s\n", batchStrings[i]);
